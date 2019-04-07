@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="error" monitorInterval="10">
+    <Appenders>
+        <!--<RollingFile name="rootAppender" fileName="./logs/bss_${sys:weblogic.Name}.log"-->
+                     <!--filePattern="./logs/bss_${sys:weblogic.Name}-%d{MM.dd.yyyy}.log" append="false">-->
+            <!--<PatternLayout>-->
+                <!--<Pattern>[%d] [%t] %5p %c{1}:%M:%L ID:%X{callId}-%X{serviceId} U:%X{userId}-%X{requestId} - %m%n</Pattern>-->
+            <!--</PatternLayout>-->
+            <!--<Policies>-->
+                <!--<TimeBasedTriggeringPolicy/>-->
+            <!--</Policies>-->
+            <!--<DefaultRolloverStrategy max="100"/>-->
+        <!--</RollingFile>-->
+        <Console name="rootAppender" target="SYSTEM_OUT">
+            <PatternLayout>
+                <Pattern>[%d] %c{1}:%M:%L - %m%n</Pattern>
+            </PatternLayout>
+        </Console>
+    </Appenders>
+
+
+    <Loggers>
+        <Root level="error">
+            <AppenderRef ref="rootAppender"/>
+        </Root>
+
+        <logger level="info" name="ru.albemuth.samples.trymonad" additivity="false">
+            <AppenderRef ref="rootAppender"/>
+        </logger>
+    </Loggers>
+
+</Configuration>
